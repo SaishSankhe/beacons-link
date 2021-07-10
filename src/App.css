@@ -292,7 +292,7 @@ input {
 
 .flex-col {
 	display: flex;
-	justify-content: start;
+	justify-content: flex-start;
 }
 
 .margin-bottom-15 {
@@ -349,7 +349,7 @@ input {
 
 @media (min-width: 450px) {
 	body {
-		margin: 10px 50px 140px 50px;
+		margin: 10px 50px 50px 50px;
 	}
 	.home-flex {
 		display: flex;
