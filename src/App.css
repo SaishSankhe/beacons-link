@@ -1,38 +1,386 @@
-.App {
-  text-align: center;
+body {
+	margin: 20px;
+	font-family: 'Poppins', sans-serif;
+	color: #19647e;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button {
+	min-height: 24px;
+	padding: 6px 16px;
+	line-height: 24px;
+	border: none;
+	border-radius: 5px;
+	transition: all 200ms ease-in-out;
+	color: #145266;
+	font-weight: 600;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+button:hover {
+	cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+input {
+	color: #145266;
 }
 
-.App-link {
-  color: #61dafb;
+.headerContent {
+	text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.home {
+	position: relative;
+	height: 100%;
+}
+
+.home-flex {
+	display: block;
+}
+
+.editor-head {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.page-heading {
+	margin: 10px 0;
+}
+
+.add-btn {
+	min-height: 24px;
+	padding: 6px 22px;
+	line-height: 24px;
+	border: none;
+	border-radius: 5px;
+}
+
+.add-submit-btn {
+	margin-top: 20px;
+}
+
+.phone-preview {
+	display: flex;
+	flex-direction: column;
+	height: 580px;
+	max-width: 280px;
+	width: auto;
+	margin: 0 auto;
+	overflow-y: auto;
+	border: 2px solid #0bc18a;
+	border-radius: 20px;
+	padding: 30px;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.phone-preview > a {
+	text-decoration: none;
+	display: inline-block;
+	text-align: center;
+	margin: 10px;
+}
+
+.preview-heading {
+	margin: 0 auto 10px auto;
+	font-size: 22px;
+	font-weight: 600;
+}
+
+.link-button {
+	padding: 10px 30px;
+	font-size: 18px;
+	font-weight: 500;
+	text-decoration: none;
+	width: 100%;
+	border: 2px solid #19647e;
+	background-color: #d8d8d8;
+}
+
+.preview-mode {
+	background-color: white;
+	position: fixed;
+	justify-content: center;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	padding: 0 20px;
+}
+
+#preview {
+	display: none;
+	padding-top: 20px;
+}
+
+.toggle-preview {
+	position: fixed;
+	bottom: 20px;
+	right: 20px;
+	padding: 10px 20px;
+	font-size: 16px;
+	z-index: 1;
+	box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+		rgba(17, 17, 26, 0.05) 0px 8px 32px;
+	border: 2px solid #53455f;
+}
+
+.editor > form {
+	display: flex;
+	flex-direction: column;
+	font-size: 20px;
+}
+
+.myForm {
+	display: flex;
+	flex-direction: column;
+}
+
+.custom-btn {
+	position: fixed;
+	bottom: 20px;
+	left: auto;
+	padding: 10px 20px;
+	font-size: 16px;
+	z-index: 1;
+	box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px,
+		rgba(17, 17, 26, 0.05) 0px 8px 32px;
+	border: 2px solid #53455f;
+}
+
+.modal {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	bottom: 100px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	padding: 20px 30px;
+	width: 75%;
+	background-color: #fff;
+	border-radius: 10px;
+	z-index: 2;
+	box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.modal-label {
+	font-weight: 500;
+	color: #0081a3;
+	margin: 0;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+}
+
+.modal-item:nth-child(2n + 1) {
+	margin-bottom: 20px;
+}
+
+.modal-btn {
+	margin-right: 20px;
+}
+
+#square {
+	border-radius: 0px;
+	border: 1.5px solid #53455f;
+}
+
+#round {
+	border-radius: 20px;
+	border: 1.5px solid #53455f;
+}
+
+.btn-selected {
+	border: 2.5px solid #53455f !important;
+}
+
+.editor-form {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	justify-content: space-between;
+	margin-bottom: 30px;
+}
+
+.form-left {
+	display: flex;
+	flex-direction: column;
+	flex: 3;
+	margin-right: 10px;
+}
+
+.form-right {
+	display: flex;
+	flex-direction: column;
+	flex: 1;
+	justify-content: space-between;
+	margin-left: 10px;
+}
+
+#delete-btn {
+	background-color: #ee585a;
+	color: #f4edea;
+	font-weight: 600;
+}
+
+.card {
+	background-color: white;
+	padding: 20px;
+	box-shadow: rgba(60, 66, 87, 0.12) 0px 7px 14px 0px,
+		rgba(0, 0, 0, 0.12) 0px 3px 6px 0px;
+}
+
+.input {
+	display: flex;
+	flex-direction: column;
+}
+
+.input-label {
+	font-size: small;
+	font-weight: 500;
+	color: #0081a3;
+	padding: 5px 0;
+}
+
+.input-field {
+	font-size: 16px;
+	line-height: 28px;
+	padding: 2px 16px 2px 0;
+	min-height: 24px;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	border-bottom: 2px solid #8b8b8b;
+	transition: all 300ms ease-in;
+	margin-bottom: 5px;
+}
+
+.input-field:focus {
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	border-bottom: 2px solid #03a9f7 !important;
+}
+
+.info {
+	font-size: 22px;
+	font-weight: 600;
+	margin: 5px 0;
+}
+
+#snackbar {
+	visibility: hidden;
+	min-width: 220px;
+	margin-left: -110px;
+	background-color: #18f2b2;
+	color: #16501f;
+	text-align: center;
+	border-radius: 5px;
+	padding: 8px 16px;
+	position: fixed;
+	z-index: 3;
+	left: 50%;
+	bottom: 30px;
+}
+
+#snackbar.show {
+	visibility: visible;
+	/* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+	-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+	animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+.flex-col {
+	display: flex;
+	justify-content: start;
+}
+
+.margin-bottom-15 {
+	margin-bottom: 15px;
+}
+
+.margin-left-10 {
+	margin-left: 10px;
+}
+
+@-webkit-keyframes fadein {
+	from {
+		bottom: 0;
+		opacity: 0;
+	}
+	to {
+		bottom: 30px;
+		opacity: 1;
+	}
+}
+
+@keyframes fadein {
+	from {
+		bottom: 0;
+		opacity: 0;
+	}
+	to {
+		bottom: 30px;
+		opacity: 1;
+	}
+}
+
+@-webkit-keyframes fadeout {
+	from {
+		bottom: 30px;
+		opacity: 1;
+	}
+	to {
+		bottom: 0;
+		opacity: 0;
+	}
+}
+
+@keyframes fadeout {
+	from {
+		bottom: 30px;
+		opacity: 1;
+	}
+	to {
+		bottom: 0;
+		opacity: 0;
+	}
+}
+
+@media (min-width: 450px) {
+	body {
+		margin: 10px 50px 40px 50px;
+	}
+	.home-flex {
+		display: flex;
+	}
+
+	#editor {
+		flex: 1;
+	}
+
+	#preview {
+		flex: 1;
+		display: block;
+		position: sticky;
+		right: 0;
+	}
+
+	.toggle-preview {
+		display: none;
+	}
+
+	.custom-btn {
+		bottom: 30px;
+		right: 50px;
+	}
+
+	.modal {
+		bottom: 30%;
+		left: 0;
+		right: 0;
+		margin: auto 0 auto auto;
+		width: 220px;
+		box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+	}
 }
