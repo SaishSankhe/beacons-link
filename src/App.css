@@ -218,7 +218,7 @@ input {
 
 #delete-btn {
 	background-color: #ee585a;
-	color: #f4edea;
+	color: #f7f0ed;
 	font-weight: 600;
 }
 
@@ -380,7 +380,7 @@ input {
 		left: 0;
 		right: 0;
 		margin: auto 0 auto auto;
-		width: 220px;
+		width: 255px;
 		box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 	}
 }

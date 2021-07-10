@@ -4,9 +4,10 @@ import Preview from './Preview';
 import Editor from './Editor';
 
 const Home = () => {
-	const [links, setLinks] = useState([]);
-	const url = 'https://retoolapi.dev/pjtRi1/links';
+	const [links, setLinks] = useState([]); // stores the data from the api
+	const url = 'https://retoolapi.dev/pjtRi1/links'; // store the api url
 
+	// fetch the data on page render and set it in useState
 	useEffect(() => {
 		async function fetchData() {
 			try {
@@ -19,11 +20,14 @@ const Home = () => {
 		fetchData();
 	}, []);
 
+	// update links array if any changes are made within the child components
+	// this function is passed as a prop to the child components
 	const updateLinks = async (updatedLinks) => {
 		setLinks([]);
 		setLinks(updatedLinks);
 	};
 
+	// if links has any data, render child components
 	if (links) {
 		return (
 			<div className="home home-flex">
@@ -32,7 +36,8 @@ const Home = () => {
 			</div>
 		);
 	} else {
-		return <h1>Loading...</h1>;
+		// else render basic loading state
+		return <h2>Loading...</h2>;
 	}
 };
 

@@ -7,8 +7,9 @@ const Preview = (props) => {
 	const { links, updateLinks } = props;
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [isColorInputOpen, setIsColorInputOpen] = useState(false);
-	const [type, setType] = useState('');
+	const [type, setType] = useState(''); // corner type - "square" / "round"
 
+	// manipulate the text on the button based on open or closed
 	const element = document.getElementById('custom-btn');
 	if (element) {
 		if (isModalOpen) {
@@ -18,6 +19,8 @@ const Preview = (props) => {
 		}
 	}
 
+	// function to open the links and update the click value in the backend
+	// as well as in the local array
 	const onLinkClick = async (id) => {
 		const getLinkData = links.find((item) => item.id === id);
 		const clicks = getLinkData.clicks;
@@ -69,6 +72,7 @@ const Preview = (props) => {
 		return element;
 	};
 
+	// function to change text and button color based on hex value passed
 	const changeColor = (value) => {
 		if (value === '#') return;
 
@@ -83,6 +87,7 @@ const Preview = (props) => {
 		}
 	};
 
+	// form to get the hex code
 	const colorInput = () => {
 		return (
 			<Formik
@@ -181,6 +186,7 @@ const Preview = (props) => {
 		}
 	};
 
+	// function to change corner types in preview mode
 	const changeCorners = (type) => {
 		const linkBtns = getElementsByClass('link-button');
 		const roundEle = document.getElementById('round');

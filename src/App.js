@@ -4,8 +4,10 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
 
 function App() {
+	// to show/hide the preview mode in mobile view
 	const [isHidden, setHidden] = useState(true);
 
+	// checks whether isHidden is true/false and hides the view accordingly
 	const hidePreview = () => {
 		const previewElement = document.getElementById('preview');
 		const previewBtn = document.getElementById('preview-btn');
@@ -19,6 +21,7 @@ function App() {
 		}
 	};
 
+	// to automatically show/hide the preview component based on window size
 	window.onresize = resize;
 	function resize() {
 		if (window.innerWidth >= 450) {
@@ -28,6 +31,7 @@ function App() {
 		}
 	}
 
+	// every time isHidden value changes, hidePreview function is called
 	useEffect(() => {
 		hidePreview();
 		// eslint-disable-next-line
